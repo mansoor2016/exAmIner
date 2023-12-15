@@ -1,28 +1,15 @@
-"""CLI interface for examiner project.
+import os
 
-Be creative! do whatever you want!
-
-- Install click or typer and create a CLI app
-- Use builtin argparse
-- Start a web application
-- Import things from your .base module
-"""
+from openai import OpenAI
 
 
 def main():  # pragma: no cover
-    """
-    The main function executes on commands:
-    `python -m examiner` and `$ examiner `.
+    os.environ["OPENAI_API_KEY"] = ""
+    client = OpenAI()
 
-    This is your program's entry point.
-
-    You can change this function to do whatever you want.
-    Examples:
-        * Run a test suite
-        * Run a server
-        * Do some other stuff
-        * Run a command line application (Click, Typer, ArgParse)
-        * List all available tasks
-        * Run an application (Flask, FastAPI, Django, etc.)
-    """
-    print("This will do something")
+    # Non-streaming:
+    print("----- standard request -----")
+    completion = client.chat.completions.create(
+        model="gpt-4", messages=[{"role": "user", "content": "Say this is a test"}]
+    )
+    print(completion.choices[0].message.content)

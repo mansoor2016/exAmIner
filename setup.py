@@ -1,6 +1,7 @@
 """Python setup.py for examiner package"""
 import io
 import os
+
 from setuptools import find_packages, setup
 
 
@@ -13,7 +14,7 @@ def read(*paths, **kwargs):
     """
 
     content = ""
-    with io.open(
+    with open(
         os.path.join(os.path.dirname(__file__), *paths),
         encoding=kwargs.get("encoding", "utf8"),
     ) as open_file:
@@ -39,8 +40,6 @@ setup(
     author="mansoor2016",
     packages=find_packages(exclude=["tests", ".github"]),
     install_requires=read_requirements("requirements.txt"),
-    entry_points={
-        "console_scripts": ["examiner = examiner.__main__:main"]
-    },
+    entry_points={"console_scripts": ["examiner = examiner.__main__:main"]},
     extras_require={"test": read_requirements("requirements-test.txt")},
 )

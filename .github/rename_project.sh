@@ -20,8 +20,8 @@ original_author="mansoor2016"
 original_name="examiner"
 original_urlname="exAmIner"
 original_description="Awesome examiner created by mansoor2016"
-# for filename in $(find . -name "*.*") 
-for filename in $(git ls-files) 
+# for filename in $(find . -name "*.*")
+for filename in $(git ls-files)
 do
     sed -i "s/$original_author/$author/g" $filename
     sed -i "s/$original_name/$name/g" $filename

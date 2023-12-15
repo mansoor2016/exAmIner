@@ -15,3 +15,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## TODO:
+
+- Can we combine multiple questions into the same query
+- How to adapt the prompt for optimal performance
+-
